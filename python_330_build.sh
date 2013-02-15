@@ -30,11 +30,11 @@ pybuild_add() {
 	export C_INCLUDE_PATH="$PREFIX/include"
 	export CPLUS_INCLUDE_PATH=$C_INCLUDE_PATH
 	export LIBRARY_PATH="$PREFIX/lib"
-    export LDFLAGS="-L$PREFIX/lib"
-    export CPPFLAGS="-I$PREFIX/include"
-    export CXXFLAGS=$CPPFLAGS
-    export CFLAGS=$CPPFLAGS
-    export LD_LIBRARY_PATH=$PREFIX/lib
+	export LDFLAGS="-L$PREFIX/lib"
+	export CPPFLAGS="-I$PREFIX/include"
+	export CXXFLAGS=$CPPFLAGS
+	export CFLAGS=$CPPFLAGS
+	export LD_LIBRARY_PATH=$PREFIX/lib
 	export LD_RUN_PATH=$LD_LIBRARY_PATH
 }
 
@@ -94,7 +94,7 @@ pybuild_xz() {
 	tar -C $BUILDDIR -zxf $SRCDIR/xz*
 	cd $BUILDDIR/xz*
 	pybuild_add
-    ./configure --prefix=$PREFIX
+	./configure --prefix=$PREFIX
 	make
 	make install
 	pybuild_remove
@@ -163,8 +163,8 @@ pybuild_tcl() {
 }
 
 pybuild_tk() {
-    dl_if_none tk8.6.0.tar.gz http://prdownloads.sourceforge.net/tcl/tk8.6.0-src.tar.gz
-    	tar -C $BUILDDIR -zxf $SRCDIR/tk*
+	dl_if_none tk8.6.0.tar.gz http://prdownloads.sourceforge.net/tcl/tk8.6.0-src.tar.gz
+	tar -C $BUILDDIR -zxf $SRCDIR/tk*
 	cd $BUILDDIR/tk8.6.0/unix
 	pybuild_add
 	./configure --prefix=$PREFIX --with-tcl=$PREFIX/lib --enable-64bit
@@ -216,13 +216,13 @@ build_python330() {
 	pybuild_remove
 	pybuild_sqlite3
 	pybuild_bzip2
-    pybuild_xz
+	pybuild_xz
 	pybuild_zlib
 	pybuild_openssl
 	pybuild_ncurses
 	pybuild_readline
-    pybuild_tcl
-    pybuild_tk
+	pybuild_tcl
+	pybuild_tk
 	pybuild_gdbm
 	pybuild_bsdbm
 	pybuild_python
